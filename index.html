@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Meebitopia Site</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+		h1 {
+			padding: 50px;
+			background-color: black;
+			color: white;
+			font-family: 'Josefin Sans', sans-serif;
+			font-size: 40px;
+			margin: auto;
+			display: inline-block;
+		
+		}h2 {
+			padding: 10px;
+			color: rgb(4, 0, 0);
+			font-family: 'Josefin Sans', sans-serif;
+			font-size: 30px;
+		
+		}
+		
+		.spacing1{
+			letter-spacing: 0.3em;
+		}
+		body { 
+			text-align: center;
+			background-image: url('../images/1.gif'); width: 100% ;
+			
+		}
+		#container {
+			width: 460px;
+			padding: 0;
+			margin:auto;
+			
+		}
+		video {
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+		.desc {
+			background-color: rgba(225, 219, 219, 0.621);
+		}
+		#clip-border { background-clip: border-box;
+			border-top-left-radius: 30px;
+			border-top-right-radius: 30px;
+			border-bottom-left-radius: 30px;
+			border-bottom-right-radius: 30px;
+		}
+		p {
+			color: black;
+		}
+		label {
+			color: black;
+
+		}
+		#button :hover{
+			background-color: black;
+			color:aliceblue;
+		}
+		#scale :hover{
+			transform: scale(1.2);
+		}
+	
+		
+
+	</style>
+	<script src="config.js"></script>
+	<script src="mintScript.js"></script>
+</head>
+
+<body>
+	<div id="container">
+		<div class="desc" id="clip-border">
+	<h1 class="spacing1"><b>MEEBITOPIA</b></h1>
+	<div id="scale">
+	<video src="medias/dancer2.mp4" width="460" muted autoplay loop></video>
+	</div>
+	<h2>MINTING INFO</h2>
+	<p id="blockNubmer"><strong>현재 블록</strong>: #00000000</p>
+	<p id="mintStartBlockNumber"><strong>민팅 시작 블록</strong>: #00000000</p>
+	<p id="mintPrice"><strong>민팅 가격</strong>: 0 KLAY</p>
+	<p id="mintLimitPerBlock"><strong>트랜젝션당 최대 수량</strong>: 0개</p>
+	<a href="https://scope.klaytn.com/">현재 블록넘버 확인하기1(Klaytnscope)</a><br>
+	<a href="https://klayswap.com/">현재 블록넘버 확인하기2(Klayswap)</a><br>
+	<hr/>
+	<h2>MY WALLET</h2>
+	<div id="button">
+	<button onclick="connect()">카이카스 지갑연결</button>
+</div>
+	<p id="myWallet"><strong>지갑주소</strong>: 연결되지 않음</p>
+	<p id="myKlay"><strong>잔액</strong> 연결되지 않음</p>
+	<hr/>
+	<h2>MINT</h2>
+	<p id="mintCnt">0 / 0</p>
+	<label for="amount"><b>민팅 수량</b></label>
+	<input type="number" id="amount" name="amount" min="1" max="3" value="1">
+	<div id="button">
+	<button onclick="publicMint()">민팅</button>
+</div>
+	<hr/>
+	<h2>NOTICE</h2>
+	<div id="button">
+	<button onclick="window.open('notice.html')">공지 창 열기</button>
+	</div>
+	<hr/>
+	<footer style="text-align: center;">Copyright &copy; 2022 <a href="https://www.youtube.com">Meebitopia</a> All rights reserved</footer>
+	<script>
+		document.addEventListener("DOMContentLoaded", async function (event) {
+			const accounts = await klaytn.enable();
+			if (!accounts) {
+				alert("KaiKas 확장 프로그램을 활성화 해주세요!");
+			}
+			check_status();
+		}
+	</script>
+	</div>
+	</div>
+</div>
+</div>
+</body>
+
+</html>
